@@ -143,6 +143,42 @@ const gameDetailsType = (gameType: GameType): string|number =>{
 const gameType1: GameType = {name:'Breath of the Fire', id: '4010', genre:'JRPG', price: 49.90,audience_rating:'PG-13'};
 console.log(gameDetailsType(gameType1));
 
+//testing function
+//let i = 0;
+const testFunction = () => 
+{ let i:number;
+  for (i = 0; i < 5; i++) {
+    console.log('Logging: '+ i);}
+
+  console.log('Now i is: '+ i);
+}
+testFunction();
+
+//type assertion using unknown properties
+let messageA: unknown = 'Hello World';
+let alternativeWay = (messageA as string).endsWith('D');//boolean return value
+console.log(alternativeWay);//will return true if it ends with d
+
+//arrow function structure
+//let function = (param):Type => {block of codes here}
+let arrowFunction = (message:string):string => {return "Hello! This is an arrow function!" + message}
+
+console.log(arrowFunction("Open your eyes!"));
+//class
+class Point {
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number){
+    this.x = x;
+    this.y = y;
+  }
+}
+const pt = new Point(1,2);//instance object
+console.log(`the point of this coordinate is ${pt.x}, ${pt.y}.`);
+
+
+
 
 
 const Info: React.FC = () => {
