@@ -3,7 +3,7 @@ import React from "react";
 import { Text, View } from "react-native";
 import styles from "./styles";
 
-//--------------Day 2-----------------
+/*--------------Day 2-----------------
 //My first TypeScript message to the world
 console.log("Hello World!");
 
@@ -97,6 +97,53 @@ const testingFunction = (a:number, b:number): number =>
   return a<b?a:b;
 }
 console.log(`testing arrow function value: ${testingFunction(57,56)}`);
+
+//-----------------Day 4-----------------
+/* Interface method 
+Similar to Type Alias way to name an object type 
+*/
+interface Game {
+  id: string;
+  name: string;
+  genre: string;
+  price: number;
+  audience_rating: string;
+}
+
+//using arrow function and union types
+const gameDetails = (game:Game): string|number => {
+  return `Welcome to my Game Database! \n
+  Game Name: ${game.name},\n 
+  Game ID: ${game.id},\n
+  Genre: ${game.genre},\n
+  Price: $${game.price}0,\n
+  Suitable for ${game.audience_rating}`
+};
+console.log(gameDetails({name: 'March of the Devils', id: '3010', genre:'Adventure', price:39.90, audience_rating:'PG13'}));
+//try creating a new game instance object
+const game1: Game = {name: 'Devils May Rest', id: '3020', genre:'Adventure',price:39.90, audience_rating:'PG-13'};
+console.log(gameDetails(game1));//also works
+
+// using Types Alias
+type GameType = {
+  id: string;
+  name: string;
+  genre: string;
+  price: number;
+  audience_rating: string;
+}
+const gameDetailsType = (gameType: GameType): string|number =>{
+  return `Welcome to my Type Alias Game Database!\n
+  Game Name: ${gameType.name},\n
+  Game ID: ${gameType.id},\n
+  Genre: ${gameType.genre},\n
+  Price: $${gameType.price}0,\n
+  Suitable for ${gameType.audience_rating}`
+};
+const gameType1: GameType = {name:'Breath of the Fire', id: '4010', genre:'JRPG', price: 49.90,audience_rating:'PG-13'};
+console.log(gameDetailsType(gameType1));
+
+
 
 const Info: React.FC = () => {
   const a: string = "a"
