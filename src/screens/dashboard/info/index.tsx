@@ -177,6 +177,7 @@ class Point {
 const pt = new Point(1,2);//instance object
 console.log(`the point of this coordinate is ${pt.x}, ${pt.y}.`);
 
+//---------Day 5------------
 
 
 
