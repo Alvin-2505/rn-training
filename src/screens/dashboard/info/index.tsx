@@ -178,9 +178,10 @@ const pt = new Point(1,2);//instance object
 console.log(`the point of this coordinate is ${pt.x}, ${pt.y}.`);
 
 //---------Day 5------------
-
-
-
+/**
+ * 
+ * @returns commenting method for typescript
+ */
 
 const Info: React.FC = () => {
   const a: string = "a"
