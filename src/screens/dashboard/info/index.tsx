@@ -1,6 +1,6 @@
 import { clearConfigCache } from "prettier";
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import styles from "./styles";
 
 /*--------------Day 2-----------------
@@ -102,7 +102,7 @@ console.log(`testing arrow function value: ${testingFunction(57,56)}`);
 /* Interface method 
 Similar to Type Alias way to name an object type 
 */
-interface Game {
+/* interface Game {
   id: string;
   name: string;
   genre: string;
@@ -183,17 +183,40 @@ console.log(`the point of this coordinate is ${pt.x}, ${pt.y}.`);
  * @returns commenting method for typescript
  */
 
-const Info: React.FC = () => {
-  const a: string = "a"
-  const num: number = 1
+/* const arrayA = [1,2,3];
+const arrayB = [4,5,6];
+arrayB.push(...arrayA);
+console.log(arrayB); */
 
+const Info: React.FC = () => {
+  /*const a: string = "a"
+  const num: number = 1
+  */
   return (
     <View style={styles.container}>
-      <Text>
-        Info Page: You don't need to login to view this page
+      <Text style={infoStyle.headerText}>
+        Hey Hey! I am getting Started with React Native
       </Text>
+      <Text style={infoStyle.smallText}>My Name is Alvin!</Text>
     </View>
   );
 };
+
+const infoStyle = StyleSheet.create({
+  headerText: {
+    fontFamily: 'IowanOldStyle-Bold',
+    fontSize: 40,
+    color: '#daa520',
+    fontWeight: 'bold',
+    textAlign:'center',
+    paddingBottom: 20,
+    
+  },
+  smallText:{
+    fontFamily: 'IowanOldStyle-Bold',
+    fontSize: 30,
+    color: '#cd5c5c'
+  }
+});
 
 export default Info;
