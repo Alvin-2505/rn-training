@@ -8,6 +8,7 @@ import LoginScreen from "../screens/login";
 import WelcomeScreen from "../screens/welcome";
 import { NavigationNames } from "../constants/navigation-names";
 import AlvinComponent from "../screens/alvinPersonalPage";
+import ListScreen from "../screens/alvinPersonalPage/ListScreen";
 
 type RootStackParamList = {
   Login: undefined;
@@ -58,6 +59,13 @@ export const AppStack = (): ReactElement => {
           component={AlvinComponent}
           options={{
             title: "Greetings!"
+          }}
+        />
+        <Stack.Screen
+          name = {NavigationNames.ListScreen}
+          component={ListScreen}
+          options={{
+            title: "Day 7 Exercise"
           }}
         />
       </Stack.Navigator>

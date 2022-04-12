@@ -3,6 +3,7 @@ import { Text, View, Alert, Button} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { NavigationNames } from "../../constants/navigation-names";
 import stylePersonal from './styles';
+import ListScreen from "./ListScreen";
 
 const AlvinComponent: React.FC = () => {
     const { navigate } = useNavigation();
@@ -17,7 +18,12 @@ const AlvinComponent: React.FC = () => {
             onPress={() => Alert.alert('Hi, my name is Alvin. This is my attempt to create a React Native Component page')}/>
         </View>
         <View>
-            <Button title="Go back Home" onPress={()=>{navigate(NavigationNames.Home)}}/>
+            <View>
+                <Button title="Go back Home" onPress={()=>{navigate(NavigationNames.Home)}}/>
+            </View>
+            <View>
+                <Button title="List Screen Exercise" onPress={()=>{navigate(NavigationNames.ListScreen)}} />
+            </View>
         </View>
     </View>
     );
