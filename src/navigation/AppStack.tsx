@@ -7,11 +7,13 @@ import InfoScreen from "../screens/dashboard/info";
 import LoginScreen from "../screens/login";
 import WelcomeScreen from "../screens/welcome";
 import { NavigationNames } from "../constants/navigation-names";
+import AlvinComponent from "../screens/alvinPersonalPage";
 
 type RootStackParamList = {
   Login: undefined;
   Welcome: undefined;
   Dashboard: undefined;
+  Alvin: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -49,6 +51,13 @@ export const AppStack = (): ReactElement => {
           component={InfoScreen}
           options={{
             title: "Info"
+          }}
+        />
+        <Stack.Screen
+          name = {NavigationNames.AlvinComponent}
+          component={AlvinComponent}
+          options={{
+            title: "Greetings!"
           }}
         />
       </Stack.Navigator>

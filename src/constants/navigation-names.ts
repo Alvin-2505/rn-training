@@ -1,3 +1,4 @@
+
 export enum NavigationNames {
   Home = "Home",
   Login = "Login",
@@ -5,5 +6,6 @@ export enum NavigationNames {
   Welcome = "Welcome",
   Info = "Info",
   Detail = "Detail",
-  Settings = "Settings"
+  Settings = "Settings",
+  AlvinComponent = "AlvinComponent"
 }
