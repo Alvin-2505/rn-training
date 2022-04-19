@@ -9,6 +9,8 @@ import WelcomeScreen from "../screens/welcome";
 import { NavigationNames } from "../constants/navigation-names";
 import AlvinComponent from "../screens/alvinPersonalPage";
 import ListScreen from "../screens/alvinPersonalPage/ListScreen";
+import CounterApp from "../screens/alvinPersonalPage/CounterApp";
+import ColorApp from "../screens/alvinPersonalPage/color";
 
 type RootStackParamList = {
   Login: undefined;
@@ -67,6 +69,20 @@ export const AppStack = (): ReactElement => {
           options={{
             title: "Day 7 Exercise"
           }}
+        />
+        <Stack.Screen 
+          name = {NavigationNames.CounterApp}
+          component = {CounterApp}
+          options = {{
+            title: "Counter"
+          }}
+        />
+        <Stack.Screen 
+        name = {NavigationNames.ColorApp}
+        component = {ColorApp}
+        options = {{
+          title: "Changing Color!"
+        }}
         />
       </Stack.Navigator>
     </NavigationContainer>

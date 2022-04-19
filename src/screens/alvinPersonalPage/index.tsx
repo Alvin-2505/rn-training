@@ -24,6 +24,12 @@ const AlvinComponent: React.FC = () => {
             <View>
                 <Button title="List Screen Exercise" onPress={()=>{navigate(NavigationNames.ListScreen)}} />
             </View>
+            <View>
+                <Button title = "Counter App" onPress={()=>{navigate(NavigationNames.CounterApp)}}/>
+            </View>
+            <View>
+                <Button title = "Color App" onPress={()=>{navigate(NavigationNames.ColorApp)}} />
+            </View>
         </View>
     </View>
     );

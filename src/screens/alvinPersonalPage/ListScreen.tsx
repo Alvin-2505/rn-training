@@ -17,10 +17,14 @@ const ListScreen = () => {
     data={friends}
     keyExtractor={friend => friend.name} 
     renderItem={({item})=>{
-        return <Text style={styling.textStyling}>{item.name}, age: {item.age}</Text>
+        return (
+        <View style={styling.listStyle}>
+            <Text style={styling.textStyling}>{item.name}, age: {item.age}</Text>
+        </View>
+        )
     }}
-
-    style = {styling.listStyle} />
+    style = {{borderTopWidth:2}}
+    />
     );
 };
 
@@ -28,10 +32,13 @@ const styling = StyleSheet.create({
     textStyling: {
         marginVertical: 20,
         fontSize: 20,
-        color: '#8a2be2'
+        color: '#8a2be2',
+        textAlign: 'center'
     },
     listStyle: {
-        borderWidth: 1
+        borderColor:'black',
+        borderStyle:'solid',
+        borderBottomWidth:2,
     } 
 });
 
