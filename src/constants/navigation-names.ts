@@ -10,5 +10,6 @@ export enum NavigationNames {
   AlvinComponent = "AlvinComponent",
   ListScreen = "ListScreen",
   CounterApp = "CounterApp",
-  ColorApp = "ColorApp"
+  ColorApp = "ColorApp",
+  ColorChanger = "ColorChanger"
 }

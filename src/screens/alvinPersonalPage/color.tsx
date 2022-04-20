@@ -6,27 +6,29 @@ const ColorApp = () => {
     const [colors, setColors] =  useState <string[]>([]);
     return (
         <View>
-            <ImageBackground source={require('./backgroundImage.png')}>
-            <Button 
-            title = "Add a Color"
-            color = "#841584"
-            onPress={()=>{
-                setColors ([...colors, randomRgbGenerator()]);
-            }}
-            />
-            
-            <FlatList 
-            keyExtractor={color=>color}
-            data={colors}
-            renderItem = {({item}) => {
-                return(
-                <View style={{alignItems:'center', paddingBottom:100}}>
-                    <View style={{ height: 100, width:100, backgroundColor: item }} />
-                    <Text>{item}</Text>
+            <ImageBackground source={require('./backgroundImage.png')} style={{height:760}}>
+            <View>
+                <Button 
+                title = "Add a Color"
+                color = "#841584"
+                onPress={()=>{
+                    setColors ([...colors, randomRgbGenerator()]);
+                }}
+                />
+                
+                <FlatList 
+                keyExtractor={color=>color}
+                data={colors}
+                renderItem = {({item}) => {
+                    return(
+                    <View style={{alignItems:'center', paddingBottom:100}}>
+                        <View style={{ height: 100, width:100, backgroundColor: item }} />
+                        <Text>{item}</Text>
+                    </View>
+                    );
+                }}
+                /> 
                 </View>
-                );
-            }}
-            /> 
             </ImageBackground>   
         </View>
     );

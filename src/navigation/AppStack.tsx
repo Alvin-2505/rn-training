@@ -11,6 +11,8 @@ import AlvinComponent from "../screens/alvinPersonalPage";
 import ListScreen from "../screens/alvinPersonalPage/ListScreen";
 import CounterApp from "../screens/alvinPersonalPage/CounterApp";
 import ColorApp from "../screens/alvinPersonalPage/color";
+import colorChanger from "../screens/color/index";
+import ColorChanger from "../screens/color/index";
 
 type RootStackParamList = {
   Login: undefined;
@@ -82,6 +84,13 @@ export const AppStack = (): ReactElement => {
         component = {ColorApp}
         options = {{
           title: "Changing Color!"
+        }}
+        />
+        <Stack.Screen
+        name = {NavigationNames.ColorChanger}
+        component = {ColorChanger}
+        options = {{
+          title: "Change Colors by Clicks!"
         }}
         />
       </Stack.Navigator>
