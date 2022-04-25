@@ -12,7 +12,7 @@ import ListScreen from "../screens/alvinPersonalPage/ListScreen";
 import CounterApp from "../screens/alvinPersonalPage/CounterApp";
 import ColorApp from "../screens/alvinPersonalPage/color";
 import colorChanger from "../screens/color/index";
-import ColorChanger from "../screens/color/index";
+import ColorChanger from "../screens/color/colorTestreducer";
 
 type RootStackParamList = {
   Login: undefined;
