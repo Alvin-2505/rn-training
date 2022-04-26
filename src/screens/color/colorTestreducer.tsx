@@ -15,7 +15,7 @@ type action = {
     colorToChange:string;
     amount:number;
 };
-const reducer = (state:state, action:action) => { 
+const reducer = (state:state, action:action) => { //action -> what you want to do with the states
     switch (action.colorToChange){
         case 'red':
             return state.red + action.amount > 255 || state.red + action.amount < 0  
