@@ -9,7 +9,7 @@ import WelcomeScreen from "../screens/welcome";
 import { NavigationNames } from "../constants/navigation-names";
 import AlvinComponent from "../screens/alvinPersonalPage";
 import ListScreen from "../screens/alvinPersonalPage/ListScreen";
-import CounterApp from "../screens/alvinPersonalPage/CounterApp";
+import CounterApp from "../screens/testFolder/counterReducer";
 import ColorApp from "../screens/alvinPersonalPage/color";
 import colorChanger from "../screens/color/index";
 import ColorChanger from "../screens/color/colorTestreducer";
