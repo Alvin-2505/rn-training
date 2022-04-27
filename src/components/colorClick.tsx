@@ -1,10 +1,13 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-const ColorClick = ({ color, onIncrease, onDecrease }:{
+
+const ColorClick = ({ color, onIncrease, onDecrease, disabledCheckIncrease,disabledCheckDecrease }:{
     color:string,
     onIncrease:Function, 
     onDecrease:Function,
+    disabledCheckIncrease: boolean,
+    disabledCheckDecrease: boolean
 }) => {
  
  return (
@@ -13,15 +16,18 @@ const ColorClick = ({ color, onIncrease, onDecrease }:{
             <Text style = {[colorStyle.colorHeader , dynamicFontColor(color).colorHeaderFont]}>{color}</Text>
         </View>
         <View>
-            <TouchableOpacity 
-            //disabled = {onIncrease()>=30?true:false}
+            <TouchableOpacity  
             style = {colorStyle.increaseButton} 
-            onPress={()=>onIncrease()}>
+            onPress={()=>onIncrease()}
+            disabled = {disabledCheckIncrease}
+            >
                 <Text style = {colorStyle.increaseButtonText}> Increase </Text>
             </TouchableOpacity>
             <TouchableOpacity 
             style = {colorStyle.decreaseButton} 
-            onPress={()=>onDecrease()}>
+            onPress={()=>onDecrease()}
+            disabled = {disabledCheckDecrease}
+            >
                 <Text style={colorStyle.decreaseButtonText}> Decrease </Text>
             </TouchableOpacity>
         </View>

@@ -21,11 +21,11 @@ const reducer = ( state: State, action: Action ) => {
     switch (action.type){
         case ActionToDo.Increase:
             return {
-                ...state, count: state.count + 1
+                ...state, count: state.count + action.payload
             }
         case ActionToDo.Decrease:
             return {
-                ...state, count: state.count - 1
+                ...state, count: state.count - action.payload
             }
     }
 }

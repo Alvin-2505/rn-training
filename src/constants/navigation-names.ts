@@ -11,5 +11,6 @@ export enum NavigationNames {
   ListScreen = "ListScreen",
   CounterApp = "CounterApp",
   ColorApp = "ColorApp",
-  ColorChanger = "ColorChanger"
+  ColorChanger = "ColorChanger",
+  TextScreen = "TextScreen"
 }

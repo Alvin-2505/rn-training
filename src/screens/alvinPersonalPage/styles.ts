@@ -2,9 +2,10 @@ import { StyleSheet } from "react-native";
 
 const stylePersonal = StyleSheet.create({
     personalPage: {
+        margin: 10,
         backgroundColor: '#7fffd4',
         alignContent: 'center',
-        height: '70%'
+        height: '45%'
     },
     titleText: {
         fontSize: 30,

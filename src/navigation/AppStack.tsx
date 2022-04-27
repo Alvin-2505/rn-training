@@ -13,12 +13,19 @@ import CounterApp from "../screens/testFolder/counterReducer";
 import ColorApp from "../screens/alvinPersonalPage/color";
 import colorChanger from "../screens/color/index";
 import ColorChanger from "../screens/color/colorTestreducer";
+import TextScreen from "../screens/testFolder/textInput";
 
 type RootStackParamList = {
   Login: undefined;
   Welcome: undefined;
   Dashboard: undefined;
-  Alvin: undefined;
+  Info: undefined;
+  AlvinComponent: undefined;
+  ListScreen: undefined;
+  CounterApp: undefined;
+  ColorApp: undefined;
+  ColorChanger: undefined;
+  TextScreen: undefined
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -93,6 +100,7 @@ export const AppStack = (): ReactElement => {
           title: "Change Colors by Clicks!"
         }}
         />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );

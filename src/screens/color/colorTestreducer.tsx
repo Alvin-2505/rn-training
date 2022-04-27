@@ -1,4 +1,4 @@
-import React,{useReducer} from 'react';
+import React,{useReducer, useState} from 'react';
 import {View, Text, Button} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ColorClick from '../../components/colorClick';
@@ -6,7 +6,7 @@ import ColorClick from '../../components/colorClick';
 const initialValue = {red: 0, green:0, blue:0};
 const COLOR_INCREMENT = 15; 
 
-type state = {
+export type state = {
     red: number;
     green: number;
     blue: number;
@@ -40,27 +40,31 @@ const reducer = (state:state, action:action) => { //action -> what you want to d
 const ColorChanger= () => {
     const [state, dispatch] = useReducer(reducer, initialValue);
     const {red, green, blue } = state;
-    
+   // const [disabled, setDisabled] = useState(false);
+
     return (    
     
     <View style={{backgroundColor:'yellow', height: 750}}>
         
         <ColorClick
-         
-         onIncrease={() => dispatch({colorToChange:'red', amount: COLOR_INCREMENT})}
+          disabledCheckIncrease = {state.red+COLOR_INCREMENT > 255 ? true : false}
+          disabledCheckDecrease = {state.red - COLOR_INCREMENT < 0 ? true: false }
+         onIncrease={ () => dispatch({colorToChange:'red', amount: COLOR_INCREMENT})}
          onDecrease={() => dispatch({colorToChange: 'red', amount: -1 * COLOR_INCREMENT})}
          color = 'Red'
          />
 
         <ColorClick
-         
+         disabledCheckIncrease = {state.green+COLOR_INCREMENT> 255 ? true : false}
+         disabledCheckDecrease = {state.green - COLOR_INCREMENT < 0 ? true: false }
          onIncrease={() => dispatch({colorToChange:'green', amount: COLOR_INCREMENT})}
          onDecrease={() => dispatch({colorToChange: 'green', amount: -1 * COLOR_INCREMENT})}
          color = 'Green'
          />
 
         <ColorClick
-         
+         disabledCheckIncrease = {state.blue+COLOR_INCREMENT>255 ? true : false}
+         disabledCheckDecrease = {state.blue - COLOR_INCREMENT < 0 ? true: false }
          onIncrease={() => dispatch({colorToChange:'blue', amount: COLOR_INCREMENT})}
          onDecrease={() => dispatch({colorToChange: 'blue', amount: -1 * COLOR_INCREMENT})}
          color = 'Blue'
@@ -134,7 +138,8 @@ const ColorChanger= () => {
             marginTop:30, 
             width: 150, 
             alignSelf:'center'}}
-        onPress={()=>{
+            disabled = {(state.red == 0 && state.green ==0 && state.blue ==0)?true : false } 
+            onPress={()=>{
             dispatch({colorToChange:'reset', amount: 0})}}>
             <Text style={{
                 textAlign:'center', 

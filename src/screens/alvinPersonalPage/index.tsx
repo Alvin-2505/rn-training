@@ -33,6 +33,9 @@ const AlvinComponent: React.FC = () => {
             <View>
                 <Button title = "Color Change App" onPress={()=>{navigate(NavigationNames.ColorChanger)}} />
             </View>
+            <View>
+                <Button title = "Name Input App" onPress={()=>{navigate(NavigationNames.TextScreen)}} />
+            </View>
         </View>
     </View>
     );
