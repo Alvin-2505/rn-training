@@ -100,7 +100,13 @@ export const AppStack = (): ReactElement => {
           title: "Change Colors by Clicks!"
         }}
         />
-        
+        <Stack.Screen
+        name = {NavigationNames.TextScreen}
+        component = {TextScreen}
+        options = {{
+          title: "Try to key in password!"
+        }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

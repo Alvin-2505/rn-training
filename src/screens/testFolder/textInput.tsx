@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { View, Text, Button, TextInput, StyleSheet, Alert } from 'react-native';
 
 const defaultPassword : string = 'AllTheBest';
 
@@ -7,7 +7,7 @@ type State ={
     input: string
 };
 
-const initialPassword = {
+const initialPassword:State = {
     input: ''
 };
 
@@ -16,8 +16,7 @@ const initialPassword = {
 //CORRECT => AUTHENTICATED
 //WRONG => YOU HAVE ENTERED THE WRONG PASSWORD, PLS TRY AGAIN
 enum ActionToDo {
-    Correct = 'CORRECT',
-    Wrong = 'WRONG',
+    Submit = 'SUBMIT',
     Empty = 'EMPTY',
     Reset = 'RESET'
 }
@@ -27,30 +26,42 @@ type Action = {
     payload: string
 }
 
-const reducer = (password: State, action:Action) => {
+const authenticationCheck = (password : State):boolean => {
+    return (
+        password.input === defaultPassword ? true : false
+    )
+}
+const isEmpty = (password:State): boolean => {
+    return ( password.input.length === 0) ? true : false
+}
+
+const reducer = (password: State, action:Action):State => {
     switch (action.type){
+        case ActionToDo.Submit:
+            if (authenticationCheck(password)){
+                Alert.alert('Authenticated!');
+                return initialPassword
+            } else {
+                Alert.alert('Wrong password, please ensure you key in the correct password');
+                return password
+            }
         case ActionToDo.Empty:
-            return (
-                <Text>Password is empty, please key in your password</Text>
-            )
-        case ActionToDo.Correct:
-            return (
-                <Text>Authenticated</Text>
-            )
-        case ActionToDo.Wrong:
-            return (
-                <Text>Wrong password, please re-enter</Text>
-            )
+            if (isEmpty(password)) {
+                Alert.alert('You have not key in your password! Minimum 8 characters.');
+                return initialPassword
+            } else {
+                return password
+            }
         case ActionToDo.Reset:
-            return {...password, input: initialPassword }
+            return initialPassword;
         default:
             return password;
     }
 }
-
-/* const TextScreen = () => {
+const TextScreen = () => {
     const [password, dispatch] = useReducer(reducer, initialPassword);
     //set initial state as the empty string
+    console.log(isEmpty(password))
     
     return (
     <View>
@@ -60,12 +71,14 @@ const reducer = (password: State, action:Action) => {
         style = {textScreenStyle.input}
         autoCorrect = {false}
         autoCapitalize = 'none'
-        value = {state.input}
-        onChangeText = {} 
-        //secureTextEntry = {true}
+        value = {password.input}
+        onChangeText = {()=> dispatch({type: ActionToDo.Submit, payload: password.input})}
+        placeholder = {'Enter Password'} 
+        secureTextEntry = {true}
         />
         
     </View>
+    
     )
 }
 
@@ -84,4 +97,4 @@ const textScreenStyle = StyleSheet.create({
     }
 });
 
-export default TextScreen; */
+export default TextScreen; 
