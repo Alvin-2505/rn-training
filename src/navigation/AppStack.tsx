@@ -13,7 +13,8 @@ import CounterApp from "../screens/testFolder/counterReducer";
 import ColorApp from "../screens/alvinPersonalPage/color";
 import colorChanger from "../screens/color/index";
 import ColorChanger from "../screens/color/colorTestreducer";
-import TextScreen from "../screens/testFolder/textInput";
+import TextScreen from "../screens/testFolder/textReducerCopy";
+
 
 type RootStackParamList = {
   Login: undefined;
