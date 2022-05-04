@@ -14,7 +14,7 @@ import ColorApp from "../screens/alvinPersonalPage/color";
 import colorChanger from "../screens/color/index";
 import ColorChanger from "../screens/color/colorTestreducer";
 import TextScreen from "../screens/testFolder/textReducerCopy";
-
+import SearchScreen from "../screens/testFolder/SearchScreen";
 
 type RootStackParamList = {
   Login: undefined;
@@ -26,7 +26,8 @@ type RootStackParamList = {
   CounterApp: undefined;
   ColorApp: undefined;
   ColorChanger: undefined;
-  TextScreen: undefined
+  TextScreen: undefined;
+  SearchScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -102,10 +103,10 @@ export const AppStack = (): ReactElement => {
         }}
         />
         <Stack.Screen
-        name = {NavigationNames.TextScreen}
-        component = {TextScreen}
+        name = {NavigationNames.SearchScreen}
+        component = {SearchScreen}
         options = {{
-          title: "Try to key in password!"
+          title: "Search for Restaurant!"
         }}
         />
       </Stack.Navigator>
