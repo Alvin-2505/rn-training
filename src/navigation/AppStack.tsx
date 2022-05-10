@@ -15,6 +15,7 @@ import colorChanger from "../screens/color/index";
 import ColorChanger from "../screens/color/colorTestreducer";
 import TextScreen from "../screens/testFolder/textReducerCopy";
 import SearchScreen from "../screens/testFolder/SearchScreen";
+import ResultsShowScreen from "../screens/testFolder/ResultsShowScreen";
 
 type RootStackParamList = {
   Login: undefined;
@@ -28,6 +29,7 @@ type RootStackParamList = {
   ColorChanger: undefined;
   TextScreen: undefined;
   SearchScreen: undefined;
+  ResultsShowScreen: undefined
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -107,6 +109,13 @@ export const AppStack = (): ReactElement => {
         component = {SearchScreen}
         options = {{
           title: "Search for Restaurant!"
+        }}
+        />
+        <Stack.Screen
+        name = {NavigationNames.ResultsShowScreen}
+        component = {ResultsShowScreen}
+        options = {{
+          title: 'More Details'
         }}
         />
       </Stack.Navigator>

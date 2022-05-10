@@ -1,34 +1,48 @@
-import React from "react";
-import {View, Text, TextInput, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';       
+import React, { useState } from "react";
+import {View, Text, StyleSheet, ScrollView} from 'react-native';
+import SearchBar from "../../components/SearchBar";    
+import useResults from "../../hooks/useResults";
+import ResultLists from "../../components/ResultLists";
 
 
 const SearchScreen = () => {
+    const [ term, setTerm ] = useState ('');
+    const [ searchApi, results, errorMessage ] = useResults();
+    
+    const filterByPrice = (price: string) => {
+        return results.filter(result =>{
+            return result.price === price;
+        });
+    };
+
     return (
-        <View style={style.background}>
-            <Icon 
-            name = 'search'
-            />
-            <TextInput
-           
-            placeholder="Search"
-            autoCapitalize="none"
-            autoCorrect={false}
-            />
-        </View>
-        
+        <>
+           <SearchBar 
+           term={term} 
+           onTermChange={(newTerm) => setTerm(newTerm)}
+           onTermSubmit={() => searchApi(term)}
+           />
+           {errorMessage ? <Text style={style.errorMessage}>{errorMessage}</Text> : null}
+          <Text style={style.resultCount}> We have found {results.length} results </Text>
+           <ScrollView >
+                <ResultLists title='Cost Effective' results={filterByPrice('$')} />
+                <ResultLists title='Bit Pricier' results={filterByPrice('$$')} />
+                <ResultLists title='Big Spender' results={filterByPrice('$$$')} />
+                <ResultLists title='Biggest Spender' results={filterByPrice('$$$$')} />
+           </ScrollView>
+        </>
     );
 }
 
 const style = StyleSheet.create({
-
-    background:{
-        backgroundColor:'grey',
-        height: 50,
-        borderRadius: 5,
-        marginHorizontal:15
-    },
     
+    resultCount:{
+        alignSelf: "center",
+        fontWeight: 'bold'
+    },
+    errorMessage:{
+        alignSelf:'center'
+    }
 });
 
 export default SearchScreen;
