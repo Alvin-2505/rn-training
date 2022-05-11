@@ -11,10 +11,14 @@ interface ResultProps {
 };
 
 interface Navigation {
-    navigate(destination:string):undefined
+    navigate(destination:string, params:{id:string}):undefined
 }
 
 const ResultLists = ({title, results}: ResultProps) => {
+    if (!results.length){
+        return null;
+    }
+
     const navigation: Navigation = useNavigation();
     return (
         <View style = {style.container}>
@@ -27,7 +31,7 @@ const ResultLists = ({title, results}: ResultProps) => {
                 keyExtractor = {(result) => result.id}
                 renderItem = {({item})=>{
                     return ( 
-                    <TouchableOpacity onPress={() => navigation.navigate('ResultsShowScreen')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ResultsShowScreen',{id: item.id})}>
                         <ResultsDetails 
                         title = {item.name} 
                         imageSource = {item.image_url}

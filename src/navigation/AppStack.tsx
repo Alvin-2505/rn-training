@@ -17,7 +17,7 @@ import TextScreen from "../screens/testFolder/textReducerCopy";
 import SearchScreen from "../screens/testFolder/SearchScreen";
 import ResultsShowScreen from "../screens/testFolder/ResultsShowScreen";
 
-type RootStackParamList = {
+ export type RootStackParamList = {
   Login: undefined;
   Welcome: undefined;
   Dashboard: undefined;
@@ -29,7 +29,7 @@ type RootStackParamList = {
   ColorChanger: undefined;
   TextScreen: undefined;
   SearchScreen: undefined;
-  ResultsShowScreen: undefined
+  ResultsShowScreen: {id:string}
 };
 
 const Stack = createStackNavigator<RootStackParamList>();

@@ -10,6 +10,7 @@ export interface resultsContent  {
     review_count: number,
     name: string,
     image_url: string,
+    photos: string[]
 };
 
 export default () =>{
