@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import SearchBar from "../../components/SearchBar";    
+import {SearchBar} from "../../components/SearchBar";  
+import {SearchLocationBar} from "../../components/SearchBar";  
 import useResults from "../../hooks/useResults";
 import ResultLists from "../../components/ResultLists";
 
 
 const SearchScreen = () => {
+    const [ location, setLocation ] = useState ('');
     const [ term, setTerm ] = useState ('');
     const [ searchApi, results, errorMessage ] = useResults();
     
@@ -20,7 +22,12 @@ const SearchScreen = () => {
            <SearchBar 
            term={term} 
            onTermChange={(newTerm) => setTerm(newTerm)}
-           onTermSubmit={() => searchApi(term)}
+           onTermSubmit={() => searchApi(term, location)}
+           />
+           <SearchLocationBar 
+           location={location} 
+           onTermChange={(newLocation) => setLocation(newLocation)}
+           onTermSubmit={() => searchApi(term, location)}
            />
            {errorMessage ? <Text style={style.errorMessage}>{errorMessage}</Text> : null}
           <Text style={style.resultCount}> We have found {results.length} results </Text>

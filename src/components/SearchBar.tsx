@@ -1,14 +1,20 @@
 import React from "react";
 import {View, TextInput, StyleSheet} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';       
+import Icon from 'react-native-vector-icons/Feather';     
+import Icon1 from 'react-native-vector-icons/Entypo';   
 
 type props = {
     term: string,
     onTermChange: (s: string) => void,
     onTermSubmit: () => void;
 }
+type LocationProps = {
+    location: string,
+    onTermChange: (s: string) => void,
+    onTermSubmit: () => void;
+}
 
-const SearchBar = ({term, onTermChange, onTermSubmit}: props) => {
+export const SearchBar = ({term, onTermChange, onTermSubmit}: props) => {
     return (
         <View style={style.backgroundStyle}>
             <Icon 
@@ -21,6 +27,27 @@ const SearchBar = ({term, onTermChange, onTermSubmit}: props) => {
             autoCapitalize="none"
             autoCorrect={false}
             value= {term}
+            onChangeText = {onTermChange}
+            onEndEditing = {onTermSubmit}
+            />
+        </View>
+        
+    );
+}
+
+export const SearchLocationBar = ({location, onTermChange, onTermSubmit}: LocationProps) => {
+    return (
+        <View style={style.backgroundStyle}>
+            <Icon1 
+            name = 'location-pin'
+            style = {style.iconStyle}
+            />
+            <TextInput
+            style = {style.inputStyle}
+            placeholder="Search Location Here"
+            autoCapitalize="none"
+            autoCorrect={false}
+            value= {location}
             onChangeText = {onTermChange}
             onEndEditing = {onTermSubmit}
             />
@@ -51,5 +78,3 @@ const style = StyleSheet.create({
         padding: 5
     }
 });
-
-export default SearchBar;

@@ -38,6 +38,7 @@ const ResultsShowScreen = ({route}:{route:Route}) => {
                     return <Image style = {style.images} source = {{uri: item}}/>
                 }}
             />
+        
         </View>
     )
 

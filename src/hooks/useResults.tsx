@@ -4,6 +4,7 @@ import { useNetworkStatusEffect } from "./useNetInfo";
 
 
 export interface resultsContent  {   
+    location: string,
     rating: number,
     price: string,
     id: string,
@@ -18,13 +19,13 @@ export default () =>{
     const [ results, setResults ] = useState<resultsContent[]>([]);
     const [ errorMessage, setErrorMessage ] = useState <string>();
     
-    const searchApi = async (searchTerm: string) => {
+    const searchApi = async (searchTerm: string, searchLocation: string) => {
         try{
             const response = await yelp.get('/search', { // will concatenate to the back to the baseUrl
             params: {
                 limit: 50,
                 term: searchTerm,
-                location: 'Singapore'
+                location: searchLocation
                 }
             });
             setResults(response.data.businesses);
@@ -43,7 +44,7 @@ export default () =>{
          
 
     useEffect(() => {
-        searchApi('Pasta');
+        searchApi('Pasta', 'Singapore');
     }, []);//run 1 time
     
     return [ searchApi, results, errorMessage ] as const;

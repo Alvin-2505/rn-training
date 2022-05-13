@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from 'react-native';
 
 type ResultProp = {
+        location: string,
         title: string,
         imageSource: string,
         rating: number,
